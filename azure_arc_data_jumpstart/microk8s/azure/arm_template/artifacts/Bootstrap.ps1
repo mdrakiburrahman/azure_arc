@@ -107,7 +107,7 @@ workflow ClientTools_01
                                 Write-Host "Installing $app"
                                 & choco install $app /y -Force| Write-Output
 
-                                if $app -eq "azure-cli"
+                                if ($app -eq "azure-cli")
                                 {
                                     # Configure alias to az cli for this execution
                                     New-Item -path alias:az -value 'C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin\az.cmd'
