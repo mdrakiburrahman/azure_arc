@@ -85,7 +85,7 @@ $kubectlMonShell = Start-Process -PassThru PowerShell {for (0 -lt 1) {kubectl ge
 az connectedk8s connect --name $connectedClusterName `
                         --resource-group $env:resourceGroup `
                         --location $env:azureLocation `
-                        --tags 'Project=jumpstart_azure_arc_data_services' ` --custom-locations-oid '51dfe1e8-70c6-4de5-a08e-e18aff23d815'
+                        --tags 'Project=jumpstart_azure_arc_data_services' ` --custom-locations-oid '51dfe1e8-70c6-4de5-a08e-e18aff23d815' --debug
                         # This is the Custom Locations Enterprise Application ObjectID from AAD
 
 Start-Sleep -Seconds 10
