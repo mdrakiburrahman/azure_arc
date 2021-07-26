@@ -49,14 +49,8 @@ Write-Host "`n"
 az provider show --namespace Microsoft.AzureArcData -o table
 Write-Host "`n"
 
-# Adding Azure Arc CLI extensions
-Write-Host "Adding Azure Arc CLI extensions"
-Write-Host "`n"
-az extension add --name "connectedk8s" -y
-az extension add --name "k8s-configuration" -y
-az extension add --name "k8s-extension" -y
-az extension add --name "customlocation" -y
-az extension add --name "arcdata" -y
+# Making extension install dynamic
+az config set extension.use_dynamic_install=yes_without_prompt
 
 Write-Host "`n"
 az -v
@@ -85,7 +79,7 @@ $kubectlMonShell = Start-Process -PassThru PowerShell {for (0 -lt 1) {kubectl ge
 az connectedk8s connect --name $connectedClusterName `
                         --resource-group $env:resourceGroup `
                         --location $env:azureLocation `
-                        --tags 'Project=jumpstart_azure_arc_data_services' ` --custom-locations-oid '51dfe1e8-70c6-4de5-a08e-e18aff23d815' --debug
+                        --tags 'Project=jumpstart_azure_arc_data_services' ` --custom-locations-oid '51dfe1e8-70c6-4de5-a08e-e18aff23d815'
                         # This is the Custom Locations Enterprise Application ObjectID from AAD
 
 Start-Sleep -Seconds 10
