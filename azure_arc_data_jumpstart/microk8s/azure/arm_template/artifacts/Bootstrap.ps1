@@ -106,28 +106,6 @@ workflow ClientTools_01
                             {
                                 Write-Host "Installing $app"
                                 & choco install $app /y -Force| Write-Output
-
-                                if $app -eq "azure-cli"
-                                {
-                                    # Configure alias to az cli for this execution
-                                    New-Item -path alias:az -value 'C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin\az.cmd'
-
-                                    # Adding Azure Arc CLI extensions
-                                    Write-Host "Adding Azure Arc CLI extensions"
-                                    Write-Host "`n"
-
-                                    az extension add --name "connectedk8s" -y
-                                    az extension add --name "k8s-configuration" -y
-                                    az extension add --name "k8s-extension" -y
-                                    az extension add --name "customlocation" -y
-                                    az extension add --name "arcdata" -y
-
-                                    # Validate
-                                    Write-Host "`n"
-                                    Write-Host "Azure CLI extensions installed: "
-                                    az extension list
-                                    Write-Host "`n"
-                                }
                             }
                         }                        
                     }
@@ -162,3 +140,22 @@ Register-ScheduledTask -TaskName "DataServicesLogonScript" -Trigger $Trigger -Us
 
 # Disabling Windows Server Manager Scheduled Task
 Get-ScheduledTask -TaskName ServerManager | Disable-ScheduledTask
+
+# Configure alias to az cli for this execution
+New-Item -path alias:az -value 'C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin\az.cmd'
+
+# Adding Azure Arc CLI extensions
+Write-Host "Adding Azure Arc CLI extensions"
+Write-Host "`n"
+
+az extension add --name "connectedk8s" -y
+az extension add --name "k8s-configuration" -y
+az extension add --name "k8s-extension" -y
+az extension add --name "customlocation" -y
+az extension add --name "arcdata" -y
+
+# Validate
+Write-Host "`n"
+Write-Host "Azure CLI extensions installed: "
+az extension list
+Write-Host "`n"
