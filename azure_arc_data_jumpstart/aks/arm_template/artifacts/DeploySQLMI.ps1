@@ -13,13 +13,13 @@ $dataControllerId = $(az resource show --resource-group $env:resourceGroup --nam
 ################################################
 # Localize ARM template
 ################################################
-$ServiceType = "LoadBalancer"
+$ServiceType = "NodePort"
 
 # Resource Requests
 $vCoresRequest = "2"
 $memoryRequest = "4Gi"
 $vCoresLimit =  "4"
-$memoryLimit = "8Gi"
+$memoryLimit = "6Gi"
 
 # Storage
 $StorageClassName = "managed-premium"
