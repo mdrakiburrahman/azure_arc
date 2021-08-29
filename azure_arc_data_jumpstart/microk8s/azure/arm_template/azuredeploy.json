@@ -82,8 +82,8 @@
     // Virtual Network configuration
     "virtualNetworkName": "Arc-Data-Microk8s-VNet",
     "subnetName": "Arc-Data-Microk8s-Subnet",
-    "addressPrefix": "172.16.0.0/16",
-    "subnetAddressPrefix": "172.16.1.0/24"
+    "addressPrefix": "192.168.0.0/16",
+    "subnetAddressPrefix": "192.168.1.0/24"
   },
   "resources": [
     {
