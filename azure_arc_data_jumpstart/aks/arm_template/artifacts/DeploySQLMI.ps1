@@ -38,7 +38,7 @@ if ( $env:SQLMIHA -eq $false )
 # If flag set, deploy SQL MI "Business Critical" tier
 if ( $env:SQLMIHA -eq $true )
 {
-    $replicas = 3 # Value can be either 2 or 3
+    $replicas = 2 # Value can be either 2 or 3
     $pricingTier = "BusinessCritical"
 }
 
