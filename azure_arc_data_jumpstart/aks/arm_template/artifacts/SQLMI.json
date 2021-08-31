@@ -38,13 +38,13 @@
       "type": "String"
     },
     "memoryRequest": {
-        "type": "String"
+      "type": "String"
     },
     "vCoresLimit": {
-        "type": "String"
+      "type": "String"
     },
     "memoryLimit": {
-        "type": "String"
+      "type": "String"
     },
     "dataStorageSize": {
       "type": "String",
@@ -96,7 +96,7 @@
     {
       "type": "Microsoft.AzureArcData/sqlManagedInstances",
       "apiVersion": "[parameters('apiVersion')]",
-      "name": "jumpstart-sql",
+      "name": "sql-1",
       "location": "[parameters('location')]",
       "extendedLocation": {
         "type": "CustomLocation",
@@ -125,18 +125,18 @@
             "replicas": "[parameters('replicas')]",
             "scheduling": {
               "default": {
-                  "resources": {
-                      "requests": {
-                          "cpu": "[parameters('vCoresRequest')]",
-                          "memory": "[parameters('memoryRequest')]"
-                      },
-                      "limits": {
-                          "cpu": "[parameters('vCoresLimit')]",
-                          "memory": "[parameters('memoryLimit')]"
-                      }
+                "resources": {
+                  "requests": {
+                    "cpu": "[parameters('vCoresRequest')]",
+                    "memory": "[parameters('memoryRequest')]"
+                  },
+                  "limits": {
+                    "cpu": "[parameters('vCoresLimit')]",
+                    "memory": "[parameters('memoryLimit')]"
                   }
+                }
               }
-          },
+            },
             "storage": {
               "data": {
                 "volumes": [
